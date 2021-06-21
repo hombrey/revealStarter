@@ -1,0 +1,63 @@
+    <!--{{{head-->
+<html>
+  <head>
+    <link rel="stylesheet" href="./src/reveal/dist/reveal.css">
+    <link rel="stylesheet" href="./src/reveal/mysky.css">
+	<link rel="stylesheet" href="./src/reveal/extplugins/chalkboard/style.css">
+
+	<script src="./src/reveal/dist/reveal.js"></script>
+    <script src="./src/reveal/extplugins/menu/menu.js"></script>
+    <script src="./src/reveal/extplugins/fullscreen/plugin.js"></script>
+    <script src="./src/reveal/extplugins/VideoControl.js"></script>
+    <script src="./src/reveal/extplugins/CustomActions.js"></script>
+	<script src="./src/reveal/extplugins/chalkboard/plugin.js"></script>
+    <style>
+            /*iframe {position: relative; top: 0vh; height: 60vh; width: 60vw;}*/
+            /*video { position: relative; height: 50vh; width: 50vw; }*/
+            /*a:visited { color: black; }*/
+    </style> 
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+    <!--}}}head-->
+
+    <!--{{{slides-->
+
+    <!--}}}slides-->
+
+    <!--{{{options-->
+      </div>
+    </div>
+    <script>
+      //Reveal.initialize();
+      Reveal.configure({
+        keyboard: {
+            32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)
+        } //keyboard:
+        }); //rReveal.configure
+      Reveal.initialize({
+          //slideNumber: 'c/t',
+          //loop: true,
+				menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
+					themes: true,
+					transitions: false,
+					markers: true,
+                    keyboard: true,
+					hideMissingTitles: true,
+				},
+				chalkboard: { // font-awesome.min.css must be available
+					//src: "./src/reveal/chalkboard/chalkboard.json",
+					storage: "chalkboard-demo",
+					toggleChalkboardButton: { left: "80px" },
+					toggleNotesButton: { left: "130px" },
+					colorButtons: 5
+				},
+				plugins: [ RevealFullscreen, RevealMenu, RevealChalkboard]
+      }); //Reveal.initialize
+    </script>
+  </body>
+</html>
+    <!--}}}options-->
+
