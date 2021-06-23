@@ -9,10 +9,10 @@ function evalKeyUp(evnt) {
 
     switch (keyPressed) {
         case 84 : toggleNotes();break;
-        case 37 : //arrow keys
-        case 38 :
-        case 39 :
-        case 40 : onSlideChange(); break;
+        case 72 : case 74 : case 75 : case 76 ://h,j,k,l
+        case 37 : case 38 : case 39 : case 40 ://arrow keys
+                if(!event.ctrlKey) onSlideChange(); 
+                break;
         default : return;
     } //switch (keyPressed)
 
@@ -49,9 +49,9 @@ let isVidInitiated=false;
 function initVidPlayer(clicked_id) {
     isVidInitiated = true;
     clickedVid = document.getElementById(clicked_id);
-    clickedVid.setAttribute("controls","controls") ; 
-    //clickedVid.currentTime+=5;
+    //clickedVid.setAttribute("controls","controls") ; 
     window.addEventListener("keydown", evalCtrlKey, false);
+    clickedVid.onended = function() {clickedVid.removeAttribute("controls");};
 } //function initVidPlayer(id)
 
 function closeVidPlayer() { 
@@ -87,43 +87,37 @@ function evalCtrlKey(evnt) {
 
     //console.log ("Pressed:"+keyPressed);
     switch (keyPressed) {
-        case 32 : if(event.ctrlKey) { evnt.preventDefault();
-                    if (clickedVid.paused) clickedVid.play();
-                    else clickedVid.pause();
-                 }; //if (event.ctrlKey)
-                 break; //spaebar
-        case 72 : if(event.ctrlKey) { evnt.preventDefault();
-                    playRate -= rateIncValue;
-                    if (playRate < 0.1) playRate = 0.1;
-                    playRate = parseFloat(playRate.toFixed(2));
-                    clickedVid.playbackRate = playRate;
-                    if (osdTimeout > 0) showOSD(clickedVid.playbackRate);
-                 }; //if (event.ctrlKey)
-                 break; //'h'
-        case 76 : if(event.ctrlKey) { evnt.preventDefault();
-                    playRate += rateIncValue;
-                    if (playRate > 16) playRate = 16;
-                    playRate = parseFloat(playRate.toFixed(2));
-                    clickedVid.playbackRate = playRate;
-                    if (osdTimeout > 0) showOSD(clickedVid.playbackRate);
-                 }; //if (event.ctrlKey)
-                 break; // 'l'
-        case 74 : if(event.ctrlKey) { evnt.preventDefault();
-                      clickedVid.currentTime+=5;
-                 }; //if (event.ctrlKey)
-                 break; // 'j'
-        case 75 : if(event.ctrlKey) { evnt.preventDefault();
-                      clickedVid.currentTime-=5;
-                 }; //if (event.ctrlKey)
-                 break // 'k'
-        case 70 : if(event.ctrlKey) { evnt.preventDefault();
+        case 32 :  evnt.preventDefault();
+                   if (clickedVid.paused) {clickedVid.play(); clickedVid.setAttribute("controls","controls") ;}
+                   else {clickedVid.pause();clickedVid.removeAttribute("controls");};
+                   break; //spaebar
+        case 219 : evnt.preventDefault();
+                   playRate -= rateIncValue;
+                   if (playRate < 0.1) playRate = 0.1;
+                   playRate = parseFloat(playRate.toFixed(2));
+                   clickedVid.playbackRate = playRate;
+                   if (osdTimeout > 0) showOSD(clickedVid.playbackRate);
+                   break; //'['
+        case 221 : evnt.preventDefault();
+                   playRate += rateIncValue;
+                   if (playRate > 16) playRate = 16;
+                   playRate = parseFloat(playRate.toFixed(2));
+                   clickedVid.playbackRate = playRate;
+                   if (osdTimeout > 0) showOSD(clickedVid.playbackRate);
+                   break; // ']'
+        case 190 : evnt.preventDefault();
+                   clickedVid.currentTime+=5;
+                   break; // '<period>'
+        case 188 : evnt.preventDefault();
+                   clickedVid.currentTime-=5;
+                   break // '<comma>'
+        case 70 :  if(event.ctrlKey) { evnt.preventDefault();
                     clickedVid.currentTime-=5;
-                    //clickedVid.webkitEnterFullScreen();
                     if (clickedVid.requestFullscreen) { clickedVid.requestFullscreen(); }
                         else if (clickedVid.mozRequestFullScreen) { clickedVid.mozRequestFullScreen(); }
                         else if (clickedVid.webkitRequestFullScreen) { clickedVid.webkitRequestFullScreen(); }
-                 }; //if (event.ctrlKey)
-                 break // 'f'
+                   }; //if (event.ctrlKey)
+                   break // 'f'
         default : return;
     } //switch (keyPressed)
 } //function evalCtrlKey()
