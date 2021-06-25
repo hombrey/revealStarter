@@ -1,8 +1,10 @@
 /**
- * Sky theme for reveal.js.
+ * My Sky theme for reveal.js.
  *
- * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ * Copyright (C) 2011-2012 Hakim El Hattab mod by H. Esc, http://hakim.se
  */
+/*{{{GLOBAL STYLES*/
+
 .reveal a {
   line-height: 1.3em;
 }
@@ -33,7 +35,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-heading2-size: 2.11em;
   --r-heading3-size: 1.55em;
   --r-heading4-size: 1em;
-  --r-heading5-size: 0.90em;
+  --r-heading5-size: 0.50em;
   --r-code-font: monospace;
   --r-link-color: #3b759e;
   --r-link-color-dark: #264c66;
@@ -80,7 +82,9 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   line-height: 1.3;
   font-weight: inherit;
 }
+/*}}}GLOBAL STYLES*/
 
+/*{{{HEADERS*/
 /*********************************************
  * HEADERS
  *********************************************/
@@ -127,24 +131,15 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   position:fixed;
   bottom:0vh;
   right: 0vw;
-}
-.note {
-    height:10vh;
-    opacity: 0.5;
-    font-size: var(--r-heading5-size);
-    text-align:right;
-    position:fixed;
-    bottom:0vh;
-    right: 0vw;
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 0.50em; 
-    max-height: 100%;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .reveal h1 {
   text-shadow: var(--r-heading1-text-shadow);
 }
+/*}}}HEADERS*/
 
+/*{{{OTHER*/
 /*********************************************
  * OTHER
  *********************************************/
@@ -331,7 +326,9 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal img {
   margin: var(--r-block-margin) 0;
 }
+/*}}}OTHER*/
 
+/*{{{LNKS*/
 /*********************************************
  * LINKS
  *********************************************/
@@ -351,7 +348,9 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   color: #fff;
   background: var(--r-link-color-dark);
 }
+/*}}}LNKS*/
 
+/*{{{FRAME-NAVIGATION-PROGRESS-PRINT*/
 /*********************************************
  * Frame helper
  *********************************************/
@@ -392,3 +391,100 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
     background-color: var(--r-background-color);
   }
 }
+/*}}}FRAME-NAVIGATION-PROGRESS-PRINT*/
+
+/*********************************************
+ * CONTENT POSITION HELPERS
+ *********************************************/
+
+/*{{{NOTE CLASS*/
+.note {
+    display: none;
+    height:9vh;
+    opacity: 0.9;
+    text-align:right;
+    position: relative;
+    top:0vh;
+    right: 0vw;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 0.40em; 
+    max-height: 8vh;
+    overflow: auto;
+} /*.note*/
+/*}}}NOTE CLASS*/
+
+/*{{{THREE SECTION GRID*/
+.grid3{
+    display:grid;
+    grid-template-columns: 32vw 32vw 32vw;
+    grid-template-rows: 10vh 70vh auto 10vh;
+    justify-content: center; /*align whole on horiz center*/
+}/*grid3*/
+.grid3-head{
+    grid-column: span 3;
+    align-self: center;
+    justify-self: left;
+}/*grid3head*/
+.grid3-item{
+    /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+}/*grid3head*/
+.grid3-spacer{
+    grid-column: span 3;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}/*grid3head*/
+.grid3-note{
+    align-self: start;
+}/*grid3head*/
+
+/*}}}TWO SECTION GRID*/
+
+/*{{{TWO SECTION GRID*/
+.grid2{
+    display:grid;
+    grid-template-columns: 48vw 48vw;
+    grid-template-rows: 10vh 70vh auto 10vh;
+    justify-content: center; /*align whole on horiz center*/
+}/*grid3*/
+.grid2-head{
+    grid-column: span 2;
+    align-self: end;
+    justify-self: left;
+}/*grid3head*/
+.grid2-item{
+    /*background-color: rgba(255, 255, 255, 0.8);*/
+}/*grid3head*/
+.grid2-spacer{
+    grid-column: span 2;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}/*grid3head*/
+.grid2-note{
+    align-self: start;
+}/*grid3head*/
+
+/*}}}TWO SECTION GRID*/
+
+/*{{{ONE SECTION GRID*/
+.grid1{
+    display:grid;
+    grid-template-columns: 96vw;
+    grid-template-rows: 10vh 70vh auto 10vh;
+    justify-content: center; /*align whole on horiz center*/
+}/*grid3*/
+.grid1-head{
+    grid-column: span 1;
+    align-self: end;
+    justify-self: left;
+}/*grid3head*/
+.grid1-item{
+    /*background-color: rgba(255, 255, 255, 0.8);*/
+}/*grid3head*/
+.grid1-spacer{
+    grid-column: span 1;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+}/*grid3head*/
+.grid1-note{
+    align-self: start;
+}/*grid3head*/
+
+/*}}}ONE SECTION GRID*/
+
