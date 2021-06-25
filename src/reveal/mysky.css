@@ -324,7 +324,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 }
 
 .reveal img {
-  margin: var(--r-block-margin) 0;
+  /*margin: var(--r-block-margin) 0;*/
 }
 /*}}}OTHER*/
 
@@ -397,6 +397,13 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
  * CONTENT POSITION HELPERS
  *********************************************/
 
+.fillDiv{
+    height: 100%;
+    width:  100%;
+    object-fit: fill;
+}/*fillDiv*/
+
+
 /*{{{NOTE CLASS*/
 .note {
     display: none;
@@ -409,6 +416,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
     color: rgba(0, 0, 0, 0.8);
     font-size: 0.40em; 
     max-height: 8vh;
+    object-fit:scale-down;
     overflow: auto;
 } /*.note*/
 /*}}}NOTE CLASS*/
@@ -416,7 +424,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 /*{{{THREE SECTION GRID*/
 .grid3{
     display:grid;
-    grid-template-columns: 32vw 32vw 32vw;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 10vh 70vh auto 10vh;
     justify-content: center; /*align whole on horiz center*/
 }/*grid3*/
@@ -426,7 +434,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
     justify-self: left;
 }/*grid3head*/
 .grid3-item{
-    /*border: 1px solid rgba(0, 0, 0, 0.8);*/
+    border: 1px solid rgba(0, 0, 0, 0.8);
 }/*grid3head*/
 .grid3-spacer{
     grid-column: span 3;
