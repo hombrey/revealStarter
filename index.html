@@ -27,14 +27,14 @@
     <!--}}}slides-->
 
     <!--{{{options-->
-      </div>
-    </div>
+    </div> <!-- slides -->
+    </div> <!-- reveal -->
     <script>
       //Reveal.initialize();
       Reveal.configure({
         keyboard: {
-            32: null, // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)
-           190: null // don't do anything when <period> is pressed (i.e. disable a reveal.js default binding)
+            32: null, // don't use default reveal.js binding when SPACE is pressed
+           190: null // don't use default reveal.js binding when <period> is pressed
         } //keyboard:
         }); //rReveal.configure
       Reveal.initialize({
@@ -46,14 +46,15 @@
 					markers: true,
                     keyboard: true,
 					hideMissingTitles: true,
-				},
+				}, //menu
 				chalkboard: { // font-awesome.min.css must be available
 					//src: "./src/reveal/chalkboard/chalkboard.json",
-					storage: "chalkboard-demo",
-					toggleChalkboardButton: { left: "80px" },
-					toggleNotesButton: { left: "130px" },
-					colorButtons: 5
-				},
+                    chalkEffect: 0.3,
+                    toggleNotesButton: true,
+					toggleChalkboardButton: { left: "80px" }, 
+                    toggleNotesButton: { left: "130px" },
+					colorButtons: true,
+				},//chalkboard
 				plugins: [ RevealFullscreen, RevealMenu, RevealChalkboard]
       }); //Reveal.initialize
     </script>
